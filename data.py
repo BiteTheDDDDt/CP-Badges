@@ -20,7 +20,9 @@ def get_info(handle, website):
     elif website == 'uri':
         return get_uri(handle)
     elif website == 'leetcode':
-        return get_leetcode(handle)
+        return get_leetcode(handle, false)
+    elif website == 'leetcode':
+        return get_leetcode(handle, true)
     else:
         raise ValueError('wrong platform website name')
 
@@ -154,8 +156,11 @@ def get_uri(user_id):
     return [points, '#F9A908']
 
 
-def get_leetcode(username):
-    url = 'http://leetcode.com/graphql'
+def get_leetcode(username, cn = False):
+    if cn:
+        url = 'http://leetcode-cn.com/graphql'
+    else:
+        url = 'http://leetcode.com/graphql'
     queryString = '''query getContestRankingData($username: String!) {
                         userContestRankingHistory(username: $username) {
                                 rating
