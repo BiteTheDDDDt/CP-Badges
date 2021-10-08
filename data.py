@@ -20,9 +20,9 @@ def get_info(handle, website):
     elif website == 'uri':
         return get_uri(handle)
     elif website == 'leetcode':
-        return get_leetcode(handle, false)
+        return get_leetcode(handle, False)
     elif website == 'leetcode':
-        return get_leetcode(handle, true)
+        return get_leetcode(handle, True)
     else:
         raise ValueError('wrong platform website name')
 
